@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="170729d8-197c-40f0-b023-359bcc864a72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/AccountDaoMockTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/bank.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/bank.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AccountDaoMockTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AccountDaoTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +70,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AccountDaoMockTest">
+  <component name="RunManager" selected="JUnit.AccountDaoTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="bank" />
@@ -82,10 +78,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccountDaoMockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="bank" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AccountDaoMockTest" />
+      <option name="MAIN_CLASS_NAME" value="AccountDaoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,7 +106,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AccountDaoMockTest" />
+        <item itemvalue="JUnit.AccountDaoTest" />
         <item itemvalue="JUnit.All in bank" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.AccountServiceMockTest" />
@@ -134,7 +130,7 @@
       <workItem from="1571213643694" duration="38544000" />
       <workItem from="1571652240623" duration="8096000" />
       <workItem from="1571687474511" duration="11866000" />
-      <workItem from="1571822435478" duration="2289000" />
+      <workItem from="1571822435478" duration="2626000" />
     </task>
     <servers />
   </component>

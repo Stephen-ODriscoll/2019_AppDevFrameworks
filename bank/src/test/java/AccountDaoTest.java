@@ -9,7 +9,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration("classpath:beans.xml")
-public class AccountDaoMockTest {
+public class AccountDaoTest {
 
     @Autowired
     AccountDao accountDao;
