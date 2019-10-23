@@ -144,15 +144,6 @@ public class Main {
         accountService.numAboveLimit(limit);
     }
 
-    @Bean
-    public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .setName("testDB")
-                .addScript("classpath:schema.sql")
-                .addScript("classpath:data.sql").build();
-    }
-
     private static String getString(String question) {
         System.out.println(question);
         return kb.nextLine();
