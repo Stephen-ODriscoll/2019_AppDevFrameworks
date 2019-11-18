@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0834588d-cf29-464b-896c-ee3876d536ec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/reverseAuction/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Design.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Design.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/dao/AccountDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/dao/AccountDaoImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/dao/CustomerDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/dao/CustomerDaoImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/mappers/AccountRowMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/mappers/CustomerRowMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/model/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/model/AccountImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/model/CustomerImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/service/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/service/AccountServiceImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/service/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/java/ie/stephen/service/CustomerServiceImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/resources/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/resources/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/test/java/AccountDaoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/src/test/java/AccountServiceMockTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/dao/AccountDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/dao/AccountDaoImplementation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/dao/AccountDaoImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/dao/CustomerDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/dao/CustomerDaoImplementation$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/dao/CustomerDaoImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/mappers/AccountRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/mappers/CustomerRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/model/Account.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/model/AccountImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/model/CustomerImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/service/AccountService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/service/AccountServiceImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/service/CustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/ie/stephen/service/CustomerServiceImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/classes/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/test-classes/AccountDaoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/test-classes/AccountServiceMockTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bank/target/test-classes/META-INF/bank.kotlin_module" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\steph\OneDrive\Desktop\2019_AppDevFrameworks\Assignment2\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1TnGqIU2JHGXVT7brw2FNgkf3Fr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0834588d-cf29-464b-896c-ee3876d536ec" name="Default Changelist" comment="" />
+      <created>1574088634401</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574088634401</updated>
+      <workItem from="1574088640866" duration="617000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
