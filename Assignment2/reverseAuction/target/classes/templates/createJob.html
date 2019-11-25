@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+    <form>
+        <div class="container">
+            <label><b th:text="#{field.jobName}"></b></label>
+            <input type="text" th:placeholder="#{field.jobName}" name="jobName" required>
+
+            <label><b th:text="#{field.jobDesc}"></b></label>
+            <input type="text" th:placeholder="#{field.jobName}" name="jobDesc" required>
+
+            <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
+            <button type="submit" th:text="#{login}"></button>
+        </div>
+    </form>
+</body>
+</html>

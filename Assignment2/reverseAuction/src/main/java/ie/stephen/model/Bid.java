@@ -1,31 +1,33 @@
 package ie.stephen.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Bid {
 
-    private RegisteredUser bidder;
+    @Id
+    @GeneratedValue
+    private int bidId;
     private double amount;
 
-    public Bid() {
-    }
+    @ManyToOne
+    @JoinColumn(name="jobId")
+    Job job;
 
-    public Bid(RegisteredUser bidder, double amount) {
-        this.bidder = bidder;
+    @ManyToOne
+    @JoinColumn(name="userId")
+    RegisteredUser bidder;
+
+    public Bid(int amount, Job job, RegisteredUser bidder) {
         this.amount = amount;
-    }
-
-    public RegisteredUser getBidder() {
-        return bidder;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setBidder(RegisteredUser bidder) {
+        this.job = job;
         this.bidder = bidder;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
     }
 }

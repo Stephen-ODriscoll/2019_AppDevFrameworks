@@ -1,31 +1,35 @@
 package ie.stephen.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class RegisteredUser {
 
+    @Id
+    @GeneratedValue
+    private int userId;
     private String name;
     private String email;
+    private double phoneNo;
 
-    public RegisteredUser() {
-    }
+    @OneToMany(mappedBy = "creator", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private List<Job> jobs = new ArrayList<>();
 
-    public RegisteredUser(String name, String email) {
-        this.name = name;
+    @OneToMany(mappedBy = "bidder", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private List<Bid> bids = new ArrayList<>();
+
+    public RegisteredUser(String email, String name, double phoneNo) {
         this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+        this.phoneNo = phoneNo;
     }
 }

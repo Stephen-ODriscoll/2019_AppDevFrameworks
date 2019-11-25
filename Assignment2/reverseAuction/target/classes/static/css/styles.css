@@ -1,0 +1,103 @@
+* {
+	font-family:"Arial Rounded MT"; 
+}
+
+h1{
+	color:navy;
+}
+
+th, td{
+	border: solid black 1px;
+}
+
+th{
+	background-color: navy;
+	color: white;		
+}
+
+.odd{
+	background-color: grey;
+	color: white;		
+}
+
+.even{
+	color: white;		
+	background-color: green;
+}
+
+/* Bordered form */
+form {
+	border: 3px solid #f1f1f1;
+	width: 60%;
+	margin: 10% 20%;
+}
+
+/* Full-width inputs */
+input {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+	color: white;
+	padding: 14px 20px;
+	margin-left: 5%;
+	border: 0;
+	cursor: pointer;
+	width: 40%;
+}
+
+button[type=button] {
+	background-color: #ff2b00;
+	margin-right: 5%;
+}
+
+button[type=submit] {
+	background-color: #4CAF50;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+	opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container {
+	padding: 16px;
+}
+
+.flags {
+	display: flex;
+	float: right;
+}
+
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+	background-color: #111;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+    <form>
+        <div class="container">
+            <label><b th:text="#{field.bidAmount}"></b></label>
+            <input type="number" th:placeholder="#{field.bidAmount}" name="bidAmount" required>
+
+            <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
+            <button type="submit" th:text="#{login}"></button>
+        </div>
+    </form>
+</body>
+</html>
