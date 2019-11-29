@@ -25,7 +25,7 @@ public class Bid {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="userEmail")
     RegisteredUser bidder;
 
     public Bid(int amount, Job job, RegisteredUser bidder) {

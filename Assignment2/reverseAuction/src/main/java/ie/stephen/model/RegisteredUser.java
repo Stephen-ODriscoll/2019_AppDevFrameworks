@@ -17,12 +17,9 @@ import java.util.List;
 public class RegisteredUser {
 
     @Id
-    @GeneratedValue
-    private int userId;
-    private String name;
-
     @Email
     private String userEmail;
+    private String name;
     private String phoneNo;
     private String password;
     private boolean enabled;
@@ -35,16 +32,11 @@ public class RegisteredUser {
     @OneToMany(mappedBy = "bidder", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Bid> bids = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "roleEmail", nullable = false)
-    private Role role;
-
-    public RegisteredUser(String name, String userEmail, String phoneNo, String password, boolean enabled, Role role) {
-        this.name = name;
+    public RegisteredUser(String userEmail, String name, String phoneNo, String password, boolean enabled) {
         this.userEmail = userEmail;
+        this.name = name;
         this.phoneNo = phoneNo;
         this.password = password;
         this.enabled = enabled;
-        this.role = role;
     }
 }

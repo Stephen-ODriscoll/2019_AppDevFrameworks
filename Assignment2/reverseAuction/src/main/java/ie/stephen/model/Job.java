@@ -25,7 +25,7 @@ public class Job {
     private boolean open;
 
     @ManyToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name="userEmail")
     RegisteredUser creator;
 
     @OneToMany(mappedBy="job", fetch= FetchType.EAGER, cascade = CascadeType.REMOVE)

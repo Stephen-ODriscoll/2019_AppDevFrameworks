@@ -13,6 +13,16 @@ import javax.persistence.*;
 public class Role {
 
     @Id
-    private String roleEmail;
+    @GeneratedValue
+    private int roleId;
+
+    @OneToOne
+    @JoinColumn(name = "userEmail", nullable = false)
+    private RegisteredUser registeredUser;
     private String role;
+
+    public Role(RegisteredUser registeredUser, String role) {
+        this.registeredUser = registeredUser;
+        this.role = role;
+    }
 }

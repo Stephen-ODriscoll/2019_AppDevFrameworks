@@ -2,6 +2,10 @@
 	font-family:"Arial Rounded MT"; 
 }
 
+h3 {
+	text-align: center;
+}
+
 th, td{
 	border: solid black 1px;
 }

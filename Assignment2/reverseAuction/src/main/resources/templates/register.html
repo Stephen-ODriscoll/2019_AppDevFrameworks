@@ -7,11 +7,12 @@
 <body>
     <form method="post" th:action="@{/register}" th:object="${registerForm}">
         <div class="container">
+            <h3 th:text="${message}"></h3>
             <label><b th:text="#{field.email}"></b></label>
             <input type="email" th:placeholder="#{field.email}" th:field="*{email}" required>
 
-            <label><b th:text="#{field.username}"></b></label>
-            <input type="text" th:placeholder="#{field.username}" th:field="*{name}" required>
+            <label><b th:text="#{field.name}"></b></label>
+            <input type="text" th:placeholder="#{field.name}" th:field="*{name}" required>
 
             <label><b th:text="#{field.phoneNo}"></b></label>
             <input type="tel" th:placeholder="#{field.phoneNo}" th:field="*{phoneNo}" pattern="[0-9]{3}-[0-9]{7}" required>

@@ -31,10 +31,10 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Role role = roleService.save(new Role("admin@admin.com", "Registered"));
+        RegisteredUser user = registeredUserService.save(new RegisteredUser("admin@admin.com","admin",
+                "000-0000000", encoder.encode("admin"), true));
 
-        RegisteredUser user = registeredUserService.save(new RegisteredUser("admin","admin@admin.com",
-                "000-0000000", encoder.encode("admin"), true, role));
+        roleService.save(new Role(user, "Registered"));
 
         Job job = jobService.save(new Job("jname","jdesc", user));
         Job job1 = jobService.save(new Job("jname1","jdesc1", user));

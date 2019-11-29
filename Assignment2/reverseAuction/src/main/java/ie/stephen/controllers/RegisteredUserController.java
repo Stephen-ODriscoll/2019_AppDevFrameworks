@@ -45,17 +45,16 @@ public class RegisteredUserController {
         if (binding.hasErrors())
             return "register";
 
-        Role role = roleService.save(new Role(registerForm.getEmail(), "Registered"));
-        RegisteredUser user = registeredUserService.save(new RegisteredUser(registerForm.getName(), registerForm.getEmail(),
-                registerForm.getPhoneNo(), encoder.encode(registerForm.getPassword()),true,  role));
-
-        if (user != null )
-            return "redirect:login";
-        else {
-            // starts again with empty form (new object)
-            redirectAttributes.addFlashAttribute("duplicate", true);
+        if (registeredUserService.existsByEmail(registerForm.getEmail())) {
+            redirectAttributes.addFlashAttribute("message", "User with that email address already exists");
             return "redirect:register";
         }
+
+        RegisteredUser user = registeredUserService.save(new RegisteredUser(registerForm.getEmail(), registerForm.getName(),
+                registerForm.getPhoneNo(), encoder.encode(registerForm.getPassword()),true));
+
+        roleService.save(new Role(user, "Registered"));
+        return "redirect:login";
     }
 
     @GetMapping(value= {"/login"})
