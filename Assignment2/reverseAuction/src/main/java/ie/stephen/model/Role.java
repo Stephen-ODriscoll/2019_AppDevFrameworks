@@ -14,7 +14,5 @@ public class Role {
 
     @Id
     private String roleEmail;
-
-    @Column
     private String role;
 }

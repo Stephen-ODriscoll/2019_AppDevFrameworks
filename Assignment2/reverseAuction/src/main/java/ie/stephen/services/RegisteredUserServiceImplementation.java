@@ -18,6 +18,13 @@ public class RegisteredUserServiceImplementation implements RegisteredUserServic
     }
 
     @Override
+    public RegisteredUser findByEmail(String email) {
+        if (registeredUserDAO.existsByUserEmail(email))
+            return registeredUserDAO.findByUserEmail(email);
+        return null;
+    }
+
+    @Override
     public List<RegisteredUser> getAllRegisteredUsers() {
         return registeredUserDAO.findAll();
     }

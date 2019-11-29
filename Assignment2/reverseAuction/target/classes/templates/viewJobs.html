@@ -9,7 +9,7 @@
      th:object="${job}">
     <h1 th:text="*{name}"></h1>
     <p th:text="*{description}"></p>
-    <a th:href="@{/bid}"><button class="placeBid" th:text="#{bid}"></button></a>
+    <a th:href="@{/bid/} + *{jobId}"><button class="placeBid" th:text="#{bid}"></button></a>
     <br/>
     <br/>
     <hr/>

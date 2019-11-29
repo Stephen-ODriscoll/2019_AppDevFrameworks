@@ -9,7 +9,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <meta charset="utf-8" />
 </head>
 
-<body>
+<header>
     <div th:fragment="menu">
         <ul>
             <li><a th:href="@{/}"><span th:text="#{home}"></span></a></li>
@@ -31,6 +31,9 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
             <li class="name" sec:authorize="isAuthenticated()"><span  sec:authentication="name">No name</span></li>
         </ul>
     </div>
+</header>
+
+<body>
 </body>
 
 </html>

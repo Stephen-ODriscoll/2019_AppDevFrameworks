@@ -22,11 +22,8 @@ public class RegisteredUser {
     private String name;
 
     @Email
-    @Column
     private String userEmail;
     private String phoneNo;
-
-    @Column
     private String password;
     private boolean enabled;
 

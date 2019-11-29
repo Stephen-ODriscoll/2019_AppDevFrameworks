@@ -5,6 +5,7 @@ import ie.stephen.forms.RegisterForm;
 import ie.stephen.model.RegisteredUser;
 import ie.stephen.model.Role;
 import ie.stephen.services.RegisteredUserService;
+import ie.stephen.services.RoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,6 +27,9 @@ public class RegisteredUserController {
     RegisteredUserService registeredUserService;
 
     @Autowired
+    RoleService roleService;
+
+    @Autowired
     PasswordEncoder encoder;
 
     @GetMapping(value= {"/register"})
@@ -41,12 +45,9 @@ public class RegisteredUserController {
         if (binding.hasErrors())
             return "register";
 
-
-        Role role = new Role(registerForm.getEmail(), "Authorized");
-        RegisteredUser user = new RegisteredUser(registerForm.getName(), registerForm.getEmail(),
-                registerForm.getPhoneNo(), encoder.encode(registerForm.getPassword()),true,  role);
-
-        user = registeredUserService.save(user);
+        Role role = roleService.save(new Role(registerForm.getEmail(), "Registered"));
+        RegisteredUser user = registeredUserService.save(new RegisteredUser(registerForm.getName(), registerForm.getEmail(),
+                registerForm.getPhoneNo(), encoder.encode(registerForm.getPassword()),true,  role));
 
         if (user != null )
             return "redirect:login";
