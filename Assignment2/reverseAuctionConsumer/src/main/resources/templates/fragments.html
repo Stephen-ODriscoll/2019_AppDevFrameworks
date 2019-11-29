@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css" />
+    <link rel="stylesheet" th:href="@{/css/flag-icon.css}" type="text/css" />
+    <title>Reverse Auction</title>
+    <link rel="shortcut icon" th:href="@{/favicon_io/favicon.ico}">
+    <meta charset="utf-8" />
+</head>
+
+<header>
+    <div th:fragment="menu">
+        <ul>
+            <li><a th:href="@{/}"><span th:text="#{home}"></span></a></li>
+            <li><a th:href="@{/login}"><span th:text="#{login}"></span></a></li>
+            <li><a th:href="@{/register}"><span th:text="#{register}"></span></a></li>
+            <li><a th:href="@{/viewJobs}"><span th:text="#{viewJobs}"></span></a></li>
+            <li><a th:href="@{/createJob}"><span th:text="#{createJob}"></span></a></li>
+            <li class="flags">
+                <span th:with="currentUrl=(${@currentUrlWithoutParam.apply('lang')})">
+                    <a th:href="@{${currentUrl}(lang=fr)}"><i class="flag-icon flag-icon-fr"></i></a>
+                </span>
+
+                <!--  adapted from https://stackoverflow.com/questions/27623405/thymeleaf-add-parameter-to-current-url -->
+                <span th:with="currentUrl=(${@currentUrlWithoutParam.apply('lang')})">
+                    <a th:href="@{${currentUrl}(lang=ie)}"><i class="flag-icon flag-icon-ie"></i></a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<body>
+</body>
+
+</html>

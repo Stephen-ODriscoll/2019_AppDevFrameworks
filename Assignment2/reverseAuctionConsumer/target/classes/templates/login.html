@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+    <form>
+        <div class="container">
+            <label><b th:text="#{field.username}"></b></label>
+            <input type="text" th:placeholder="#{field.username}" name="uname" required>
+
+            <label><b th:text="#{field.password}"></b></label>
+            <input type="password" th:placeholder="#{field.password}" name="psw" required>
+
+            <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
+            <button type="submit" th:text="#{login}"></button>
+        </div>
+    </form>
+</body>
+</html>

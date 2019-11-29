@@ -1,24 +1,55 @@
 package ie.stephen.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    DataSource dataSource;
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity
-                //        Allow all requests to the root url (“/”)
-                .authorizeRequests().antMatchers("/").permitAll().and()
-                //        Allow all requests to the H2 database console url (“/console/*”)
-                .authorizeRequests().antMatchers("/console/**").permitAll();
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/css/**", "/register","/h2", "/h2/**","/", "/index").permitAll()
+                .antMatchers("/api/**").hasRole("Registered")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").permitAll()
+                .usernameParameter("email")
+                .and()
+                .httpBasic()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/index")
+                .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied")
+                .and()
+                .headers().frameOptions().disable()
+                .and()
+                .csrf().disable();
+    }
 
-        // Disable CSRF protection
-        httpSecurity.csrf().disable();
-
-        // Disable X-Frame-Options in Spring Security
-        httpSecurity.headers().frameOptions().disable();
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery("SELECT registeredUser.userEmail, registeredUser.password, registeredUser.enabled FROM registeredUser WHERE registeredUser.userEmail=?")
+                .authoritiesByUsernameQuery("SELECT role.roleEmail, role.role FROM role WHERE role.roleEmail=?");
     }
 }

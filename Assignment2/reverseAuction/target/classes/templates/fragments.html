@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:fragment="head">
     <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css" />
     <link rel="stylesheet" th:href="@{/css/flag-icon.css}" type="text/css" />
@@ -8,12 +9,13 @@
     <meta charset="utf-8" />
 </head>
 
-<header>
+<body>
     <div th:fragment="menu">
         <ul>
             <li><a th:href="@{/}"><span th:text="#{home}"></span></a></li>
-            <li><a th:href="@{/login}"><span th:text="#{login}"></span></a></li>
-            <li><a th:href="@{/register}"><span th:text="#{register}"></span></a></li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><span th:text="#{login}"></span></a></li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/register}"><span th:text="#{register}"></span></a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><span th:text="#{logout}"></span></a></li>
             <li><a th:href="@{/viewJobs}"><span th:text="#{viewJobs}"></span></a></li>
             <li><a th:href="@{/createJob}"><span th:text="#{createJob}"></span></a></li>
             <li class="flags">
@@ -26,11 +28,9 @@
                     <a th:href="@{${currentUrl}(lang=ie)}"><i class="flag-icon flag-icon-ie"></i></a>
                 </span>
             </li>
+            <li class="name" sec:authorize="isAuthenticated()"><span  sec:authentication="name">No name</span></li>
         </ul>
     </div>
-</header>
-
-<body>
 </body>
 
 </html>

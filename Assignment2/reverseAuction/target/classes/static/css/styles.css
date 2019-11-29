@@ -2,10 +2,6 @@
 	font-family:"Arial Rounded MT"; 
 }
 
-h1{
-	color:navy;
-}
-
 th, td{
 	border: solid black 1px;
 }
@@ -25,14 +21,19 @@ th{
 	background-color: green;
 }
 
-/* Bordered form */
+.name{
+	display: flex;
+	float: right;
+	color: white;
+	padding: 14px 16px;
+}
+
 form {
 	border: 3px solid #f1f1f1;
 	width: 60%;
 	margin: 10% 20%;
 }
 
-/* Full-width inputs */
 input {
 	width: 100%;
 	padding: 12px 20px;
@@ -42,7 +43,6 @@ input {
 	box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
 button {
 	color: white;
 	padding: 14px 20px;
@@ -61,12 +61,16 @@ button[type=submit] {
 	background-color: #4CAF50;
 }
 
-/* Add a hover effect for buttons */
 button:hover {
 	opacity: 0.8;
 }
 
-/* Add padding to containers */
+.placeBid {
+	background-color: #4CAF50;
+	width: 20%;
+	float: right;
+}
+
 .container {
 	padding: 16px;
 }
@@ -97,7 +101,6 @@ li a {
 	text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
 	background-color: #111;
 }

@@ -5,17 +5,17 @@
 <div th:insert="fragments.html :: menu"></div>
 
 <body>
-    <form>
-        <div class="container">
-            <label><b th:text="#{field.username}"></b></label>
-            <input type="text" th:placeholder="#{field.username}" name="uname" required>
+    <div class="container">
+        <form class="login-form" method="post" th:action="@{/login}">
+            <label><b th:text="#{field.email}"></b></label>
+            <input type="email" name="email" th:placeholder="#{field.email}" required>
 
             <label><b th:text="#{field.password}"></b></label>
-            <input type="password" th:placeholder="#{field.password}" name="psw" required>
+            <input type="password" name="password" th:placeholder="#{field.password}" required>
 
             <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
             <button type="submit" th:text="#{login}"></button>
-        </div>
-    </form>
+        </form>
+    </div>
 </body>
 </html>

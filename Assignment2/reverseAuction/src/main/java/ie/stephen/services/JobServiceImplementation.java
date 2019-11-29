@@ -19,6 +19,11 @@ public class JobServiceImplementation implements JobService {
     }
 
     @Override
+    public Job findJob(int id) {
+        return jobDAO.findByJobId(id);
+    }
+
+    @Override
     public List<Job> getAllJobs() {
         return jobDAO.findAll();
     }

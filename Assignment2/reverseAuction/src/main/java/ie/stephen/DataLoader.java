@@ -3,12 +3,15 @@ package ie.stephen;
 import ie.stephen.model.Bid;
 import ie.stephen.model.Job;
 import ie.stephen.model.RegisteredUser;
+import ie.stephen.model.Role;
 import ie.stephen.services.BidService;
 import ie.stephen.services.JobService;
 import ie.stephen.services.RegisteredUserService;
+import ie.stephen.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,12 +23,18 @@ public class DataLoader implements ApplicationRunner {
     JobService jobService;
     @Autowired
     BidService bidService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    PasswordEncoder encoder;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        RegisteredUser user = registeredUserService.save(new RegisteredUser("ll","llls", 11111111));
-        System.out.println(registeredUserService.getAllRegisteredUsers().size());
+        Role role = roleService.save(new Role("admin@admin.com", "Registered"));
+
+        RegisteredUser user = registeredUserService.save(new RegisteredUser("admin","admin@admin.com",
+                "000-0000000", encoder.encode("admin"), true, role));
 
         Job job = jobService.save(new Job("jname","jdesc", user));
         Job job1 = jobService.save(new Job("jname1","jdesc1", user));

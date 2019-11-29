@@ -3,6 +3,7 @@ package ie.stephen.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class Job {
     private String name;
     private String description;
     private LocalDate date;
-    private String status;
+    private boolean open;
 
     @ManyToOne
     @JoinColumn(name="userId")
@@ -35,6 +36,10 @@ public class Job {
         this.description = description;
         this.creator = creator;
         this.date = LocalDate.now();
-        this.status = "open";
+        this.open = true;
+    }
+
+    public boolean getOpen() {
+        return open;
     }
 }
