@@ -28,7 +28,7 @@ public class Bid {
     @JoinColumn(name="userEmail")
     RegisteredUser bidder;
 
-    public Bid(int amount, Job job, RegisteredUser bidder) {
+    public Bid(double amount, Job job, RegisteredUser bidder) {
         this.amount = amount;
         this.job = job;
         this.bidder = bidder;

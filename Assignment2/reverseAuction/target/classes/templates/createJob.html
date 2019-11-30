@@ -5,16 +5,16 @@
 <div th:insert="fragments.html :: menu"></div>
 
 <body>
-    <form>
+    <form method="post" th:action="@{/createJob}" th:object="${jobForm}">
         <div class="container">
             <label><b th:text="#{field.jobName}"></b></label>
-            <input type="text" th:placeholder="#{field.jobName}" name="jobName" required>
+            <input type="text" th:placeholder="#{field.jobName}" name="name" required>
 
             <label><b th:text="#{field.jobDesc}"></b></label>
-            <input type="text" th:placeholder="#{field.jobDesc}" name="jobDesc" required>
+            <input type="text" th:placeholder="#{field.jobDesc}" name="description" required>
 
             <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
-            <button type="submit" th:text="#{login}"></button>
+            <button type="submit" th:text="#{createJob}"></button>
         </div>
     </form>
 </body>

@@ -5,10 +5,11 @@
 <div th:insert="fragments.html :: menu"></div>
 
 <body>
-    <form>
+    <form method="post" th:action="@{/bid/} + ${jobId}" th:object="${bidForm}">
         <div class="container">
+            <h3 th:if="${error != null}" th:text="#{bid.error}"></h3>
             <label><b th:text="#{field.bidAmount}"></b></label>
-            <input type="number" th:placeholder="#{field.bidAmount}" name="bidAmount" required>
+            <input type="number" min="0" step="any" th:placeholder="#{field.bidAmount}" name="amount" required>
 
             <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
             <button type="submit" th:text="#{bid}"></button>

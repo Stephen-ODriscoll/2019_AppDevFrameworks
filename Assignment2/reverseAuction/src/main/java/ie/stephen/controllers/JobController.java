@@ -1,8 +1,9 @@
 package ie.stephen.controllers;
 
 import ie.stephen.forms.JobForm;
+import ie.stephen.model.Bid;
 import ie.stephen.model.Job;
-import ie.stephen.model.RegisteredUser;
+import ie.stephen.services.BidService;
 import ie.stephen.services.JobService;
 import ie.stephen.services.RegisteredUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,19 +27,25 @@ public class JobController {
     JobService jobService;
 
     @Autowired
+    BidService bidService;
+
+    @Autowired
     RegisteredUserService registeredUserService;
 
     @GetMapping("/viewJobs")
     public String viewJobs(Model model)
     {
         List<Job> jobs = jobService.getAllJobs();
+        List<Bid> winningBids = bidService.getWinningBids(jobs);
         model.addAttribute("jobs", jobs);
+        model.addAttribute("winningBids", winningBids);
         return "viewJobs";
     }
 
     @GetMapping(value= {"/createJob"})
-    public String createJob()
+    public String createJob(Model model)
     {
+        model.addAttribute("jobForm", new JobForm());
         return "createJob";
     }
 
@@ -48,14 +55,12 @@ public class JobController {
         if (binding.hasErrors())
             return "createJob";
 
-        Job job = new Job(jobForm.getName(), jobForm.getDescription(), registeredUserService.findByEmail(user.getName()));
-        job = jobService.save(job);
-
+        Job job = jobService.save(new Job(jobForm.getName(), jobForm.getDescription(), registeredUserService.findByEmail(user.getName())));
         if (job != null )
             return "redirect:viewJobs";
         else {
             // starts again with empty form (new object)
-            redirectAttributes.addFlashAttribute("duplicate", true);
+            redirectAttributes.addFlashAttribute("error", true);
             return "redirect:createJob";
         }
     }

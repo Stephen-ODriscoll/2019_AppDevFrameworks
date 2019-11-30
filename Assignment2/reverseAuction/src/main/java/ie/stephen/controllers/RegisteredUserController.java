@@ -46,7 +46,7 @@ public class RegisteredUserController {
             return "register";
 
         if (registeredUserService.existsByEmail(registerForm.getEmail())) {
-            redirectAttributes.addFlashAttribute("message", "User with that email address already exists");
+            redirectAttributes.addFlashAttribute("error", true);
             return "redirect:register";
         }
 

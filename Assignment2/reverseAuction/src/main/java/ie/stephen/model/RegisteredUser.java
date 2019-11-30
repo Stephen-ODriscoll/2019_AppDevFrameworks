@@ -39,4 +39,9 @@ public class RegisteredUser {
         this.password = password;
         this.enabled = enabled;
     }
+
+    @Override
+    public String toString() {
+        return userEmail;
+    }
 }

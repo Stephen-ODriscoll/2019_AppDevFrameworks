@@ -34,12 +34,16 @@ public class DataLoader implements ApplicationRunner {
         RegisteredUser user = registeredUserService.save(new RegisteredUser("admin@admin.com","admin",
                 "000-0000000", encoder.encode("admin"), true));
 
+        RegisteredUser user1 = registeredUserService.save(new RegisteredUser("test@gmail.com","Tester",
+                "123-1234567", encoder.encode("test"), true));
+
         roleService.save(new Role(user, "Registered"));
+        roleService.save(new Role(user1, "Registered"));
 
         Job job = jobService.save(new Job("jname","jdesc", user));
         Job job1 = jobService.save(new Job("jname1","jdesc1", user));
-        Job job2 = jobService.save(new Job("jname2","jdesc2", user));
+        Job job2 = jobService.save(new Job("jname2","jdesc2", user1));
 
-        Bid bid1 = bidService.save(new Bid(100, job1, user));
+        Bid bid1 = bidService.save(new Bid(100, job1, user1));
     }
 }

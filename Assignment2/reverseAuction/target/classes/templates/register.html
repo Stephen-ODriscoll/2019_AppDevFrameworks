@@ -7,7 +7,7 @@
 <body>
     <form method="post" th:action="@{/register}" th:object="${registerForm}">
         <div class="container">
-            <h3 th:text="${message}"></h3>
+            <h3 th:if="${error != null}" th:text="#{bid.error}"></h3>
             <label><b th:text="#{field.email}"></b></label>
             <input type="email" th:placeholder="#{field.email}" th:field="*{email}" required>
 

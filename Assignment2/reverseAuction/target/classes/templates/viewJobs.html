@@ -9,6 +9,14 @@
      th:object="${job}">
     <h1 th:text="*{name}"></h1>
     <p th:text="*{description}"></p>
+    <p style="float: left" th:text="#{jobs.createdBy} + *{creator.userEmail}"></p>
+    <div class="bid" th:if="${winningBids[__${iterationCount.index}__] != null}">
+        <p th:text="#{jobs.currentBid} + ${winningBids[__${iterationCount.index}__].amount}"></p>
+        <p th:text="#{jobs.bidder} + ${winningBids[__${iterationCount.index}__].bidder.userEmail}"></p>
+    </div>
+    <div class="bid" th:if="${winningBids[__${iterationCount.index}__] == null}">
+        <p th:text="#{jobs.noBid}"></p>
+    </div>
     <a th:href="@{/bid/} + *{jobId}"><button class="placeBid" th:text="#{bid}"></button></a>
     <br/>
     <br/>
