@@ -24,8 +24,8 @@ public class BidServiceImplementation implements BidService {
     @Override
     public boolean isValid(double amount, Job job, RegisteredUser bidder) {
 
-        // Can't bid negative or on job you own
-        if (amount < 0 || bidder == job.getCreator()) {
+        // Can't bid negative, on a closed job or on job you own
+        if (amount < 0 || !job.getOpen() || bidder == job.getCreator()) {
             return false;
         }
 
@@ -37,6 +37,11 @@ public class BidServiceImplementation implements BidService {
         }
 
         return true;
+    }
+
+    @Override
+    public List<Bid> findBids(RegisteredUser registeredUser) {
+        bidDAO.findAllByBidder(registeredUser);
     }
 
     @Override

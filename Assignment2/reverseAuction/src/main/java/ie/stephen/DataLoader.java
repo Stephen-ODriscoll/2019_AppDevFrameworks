@@ -40,9 +40,15 @@ public class DataLoader implements ApplicationRunner {
         roleService.save(new Role(user, "Registered"));
         roleService.save(new Role(user1, "Registered"));
 
-        Job job = jobService.save(new Job("jname","jdesc", user));
-        Job job1 = jobService.save(new Job("jname1","jdesc1", user));
-        Job job2 = jobService.save(new Job("jname2","jdesc2", user1));
+        Job job = jobService.save(
+                new Job("Install new toilet","My toilet is after exploding bois. Gonna need a plum-mer to install a new one", user));
+        Job job1 = jobService.save(
+                new Job("TV on the wall","I bought one of those new tv yokes. Can someone help me glue it to my wall?", user));
+        Job job2 = jobService.save(new Job("Help Me","I could use some help. (No, I won't ne more specific)", user1));
+
+        Job job3 = new Job("Paint my shack","I need a good, cheap, bald painter to paint my shack blue. Is there a painter here?", user);
+        job3.setOpen(false);
+        jobService.save(job3);
 
         Bid bid1 = bidService.save(new Bid(100, job1, user1));
     }

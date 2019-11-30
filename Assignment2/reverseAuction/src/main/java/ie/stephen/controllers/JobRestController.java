@@ -2,8 +2,10 @@ package ie.stephen.controllers;
 
 import ie.stephen.model.Bid;
 import ie.stephen.model.Job;
+import ie.stephen.model.RegisteredUser;
 import ie.stephen.services.BidService;
 import ie.stephen.services.JobService;
+import ie.stephen.services.RegisteredUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -19,21 +21,18 @@ public class JobRestController {
 	@Autowired
 	BidService bidService;
 
-	@PreAuthorize("hasRole('Registered')")
-	@GetMapping("/jobs")
-	public List<Job> myRestJobs() { return jobService.getAllJobs(); }
+	@Autowired
+	RegisteredUserService registeredUserService;
 
 	@PreAuthorize("hasRole('Registered')")
-	@GetMapping("/job/{jobId}")
-	public Job myRestJob(@PathVariable("jobId") int jobId)
-	{
-		return jobService.findJob(jobId);
-	}
+	@GetMapping("/activeJobs")
+	public List<Job> myRestJobs() { return jobService.getAllActiveJobs(); }
 
 	@PreAuthorize("hasRole('Registered')")
-	@GetMapping("/bids{jobId}")
-	public List<Bid> myRestJobBids(@PathVariable("jobId") int jobId)
+	@GetMapping("/bids{userEmail}")
+	public List<Bid> myRestJobBids(@PathVariable("userEmail") String userEmail)
 	{
-		return jobService.findJob(jobId).getBids();
+		RegisteredUser registeredUser = registeredUserService.findByEmail(userEmail);
+		return bidService.findBids(registeredUser);
 	}
 }

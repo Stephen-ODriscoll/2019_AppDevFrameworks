@@ -17,7 +17,8 @@
     <div class="bid" th:if="${winningBids[__${iterationCount.index}__] == null}">
         <p th:text="#{jobs.noBid}"></p>
     </div>
-    <a th:href="@{/bid/} + *{jobId}"><button class="placeBid" th:text="#{bid}"></button></a>
+    <a th:if="*{open}" th:href="@{/bid/} + *{jobId}"><button class="placeBid" th:text="#{bid}"></button></a>
+    <h3 th:if="*{!open}" class="jobClosed" th:text="#{jobs.closed}"></h3>
     <br/>
     <br/>
     <hr/>

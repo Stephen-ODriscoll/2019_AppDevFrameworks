@@ -9,4 +9,5 @@ public interface JobService {
     Job save(Job job);
     Job findJob(int id);
     List<Job> getAllJobs();
+    List<Job> getAllActiveJobs();
 }

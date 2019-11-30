@@ -83,6 +83,11 @@ button:hover {
 	float: right;
 }
 
+.jobClosed {
+	margin-bottom: 0;
+	float: right;
+}
+
 .container {
 	padding: 16px;
 }
