@@ -53,7 +53,7 @@ public class RegisteredUserController {
         RegisteredUser user = registeredUserService.save(new RegisteredUser(registerForm.getEmail(), registerForm.getName(),
                 registerForm.getPhoneNo(), encoder.encode(registerForm.getPassword()),true));
 
-        roleService.save(new Role(user, "Registered"));
+        roleService.save(new Role(user, "ROLE_REGISTERED"));
         return "redirect:login";
     }
 
@@ -64,16 +64,5 @@ public class RegisteredUserController {
     public String register()
     {
         return "index";
-    }
-
-    @GetMapping("/users")
-    public String users(Model model){
-        List<RegisteredUser> registeredUsers = registeredUserService.getAllRegisteredUsers();
-
-        if (registeredUsers.size() == 0) {
-            return "notfounderror";
-        }
-        model.addAttribute("registeredUsers", registeredUsers);
-        return "users";
     }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+<form method="post" th:action="@{/findBids}" th:object="${findBidsForm}">
+    <div class="container">
+        <label><b th:text="#{field.email}"></b></label>
+        <input type="email" th:placeholder="#{field.email}" name="email" required>
+
+        <a th:href="@{/}"><button type="button" th:text="#{cancel}"></button></a>
+        <button type="submit" th:text="#{findBids}"></button>
+    </div>
+</form>
+</body>
+</html>

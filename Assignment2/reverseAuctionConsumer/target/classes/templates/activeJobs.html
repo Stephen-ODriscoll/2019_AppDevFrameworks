@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+    <table>
+        <tr>
+            <th th:text="#{id}">ID</th>
+            <th th:text="#{name}">Name</th>
+            <th th:text="#{description}">Description</th>
+            <th th:text="#{date}">Date</th>
+        </tr>
+        <tr th:each="job,iterationCount : ${activeJobs}"
+            th:class="${iterationCount.odd}? 'odd'"
+            th:object="${job}"	>
+            <td th:text="*{jobId}">ID</td>
+            <td th:text="*{name}">Name</td>
+            <td th:text="*{description}">Description</td>
+            <td th:text="*{date}">Date</td>
+        </tr>
+    </table>
+</body>
+</html>

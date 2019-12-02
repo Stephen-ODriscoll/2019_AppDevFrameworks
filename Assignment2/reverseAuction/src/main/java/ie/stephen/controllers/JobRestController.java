@@ -7,7 +7,6 @@ import ie.stephen.services.BidService;
 import ie.stephen.services.JobService;
 import ie.stephen.services.RegisteredUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,15 +23,14 @@ public class JobRestController {
 	@Autowired
 	RegisteredUserService registeredUserService;
 
-	@PreAuthorize("hasRole('Registered')")
 	@GetMapping("/activeJobs")
 	public List<Job> myRestJobs() { return jobService.getAllActiveJobs(); }
 
-	@PreAuthorize("hasRole('Registered')")
-	@GetMapping("/bids{userEmail}")
+	@GetMapping("/viewBids/{userEmail}")
 	public List<Bid> myRestJobBids(@PathVariable("userEmail") String userEmail)
 	{
 		RegisteredUser registeredUser = registeredUserService.findByEmail(userEmail);
+		System.out.println(userEmail);
 		return bidService.findBids(registeredUser);
 	}
 }

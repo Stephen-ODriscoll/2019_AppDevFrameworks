@@ -3,7 +3,6 @@ package ie.stephen.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -28,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/h2", "/h2/**").permitAll()
                 .antMatchers("/", "/index", "/register", "/viewJobs").permitAll()
-                .antMatchers("/api/**").hasRole("Registered")
+                .antMatchers("/api/**").hasRole("REGISTERED")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
@@ -42,15 +41,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling().accessDeniedPage("/accessDenied")
                 .and()
-                .headers().frameOptions().disable()
-                .and()
-                .csrf().disable();
+                .csrf().disable().headers().frameOptions().disable();
+
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("SELECT registeredUser.userEmail, registeredUser.password, registeredUser.enabled FROM registeredUser WHERE registeredUser.userEmail=?")
-                .authoritiesByUsernameQuery("SELECT role.userEmail, role.role FROM role WHERE role.userEmail=?");
+                .authoritiesByUsernameQuery("SELECT role.userEmail, role.description FROM role WHERE role.userEmail=?");
     }
 }

@@ -24,11 +24,9 @@ public class RegisteredUser {
     private String password;
     private boolean enabled;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "creator", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Job> jobs = new ArrayList<>();
 
-    @JsonIgnore
     @OneToMany(mappedBy = "bidder", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Bid> bids = new ArrayList<>();
 

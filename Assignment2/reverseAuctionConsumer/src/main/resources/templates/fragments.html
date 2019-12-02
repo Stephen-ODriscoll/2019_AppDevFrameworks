@@ -12,10 +12,8 @@
     <div th:fragment="menu">
         <ul>
             <li><a th:href="@{/}"><span th:text="#{home}"></span></a></li>
-            <li><a th:href="@{/login}"><span th:text="#{login}"></span></a></li>
-            <li><a th:href="@{/register}"><span th:text="#{register}"></span></a></li>
-            <li><a th:href="@{/viewJobs}"><span th:text="#{viewJobs}"></span></a></li>
-            <li><a th:href="@{/createJob}"><span th:text="#{createJob}"></span></a></li>
+            <li><a th:href="@{/activeJobs}"><span th:text="#{activeJobs}"></span></a></li>
+            <li><a th:href="@{/findBids}"><span th:text="#{findBids}"></span></a></li>
             <li class="flags">
                 <span th:with="currentUrl=(${@currentUrlWithoutParam.apply('lang')})">
                     <a th:href="@{${currentUrl}(lang=fr)}"><i class="flag-icon flag-icon-fr"></i></a>

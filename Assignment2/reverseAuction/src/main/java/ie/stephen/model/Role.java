@@ -19,10 +19,10 @@ public class Role {
     @OneToOne
     @JoinColumn(name = "userEmail", nullable = false)
     private RegisteredUser registeredUser;
-    private String role;
+    private String description;
 
-    public Role(RegisteredUser registeredUser, String role) {
+    public Role(RegisteredUser registeredUser, String description) {
         this.registeredUser = registeredUser;
-        this.role = role;
+        this.description = description;
     }
 }

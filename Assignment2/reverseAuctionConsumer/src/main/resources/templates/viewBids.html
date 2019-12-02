@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+<table>
+    <tr>
+        <th th:text="#{id}"></th>
+        <th th:text="#{amount}"></th>
+    </tr>
+    <tr th:each="bid,iterationCount : ${bids}"
+        th:class="${iterationCount.odd}? 'odd'"
+        th:object="${bid}"	>
+        <td th:text="*{bidId}">ID</td>
+        <td th:text="*{amount}">Amount</td>
+    </tr>
+</table>
+</body>
+</html>

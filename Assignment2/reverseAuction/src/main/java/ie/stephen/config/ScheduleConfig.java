@@ -19,16 +19,18 @@ public class ScheduleConfig {
     JobService jobService;
 
     // At 12 o clock every day
-    @Scheduled(cron = "0 00 12 * * *")
+    @Scheduled(cron = "0 0 12 * * *")
     public void closeJobs() {
+        System.out.println("Closing old jobs");
         List<Job> jobs = jobService.getAllJobs();
 
         for (Job job : jobs) {
             Period period = Period.between(job.getDate(), LocalDate.now());
 
-            // 20 days old it's set to closed (not open)
-            if (period.getDays() > 20 && job.getOpen()) {
+            // if a job is 20 days old it's set to closed (not open)
+            if (period.getDays() >= 20 && job.getOpen()) {
                 job.setOpen(false);
+                jobService.save(job);
             }
         }
     }
