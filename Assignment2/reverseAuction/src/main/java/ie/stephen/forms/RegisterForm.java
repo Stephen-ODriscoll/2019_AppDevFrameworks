@@ -19,6 +19,7 @@ public class RegisterForm {
     private String name;
 
     @Email
+    @NotNull
     private String email;
 
     @NotNull
