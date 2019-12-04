@@ -7,6 +7,7 @@
 <body>
     <form class="login-form" method="post" th:action="@{/login}">
         <div class="container">
+            <h3 th:if="${param.error != null}" th:text="#{login.error}"></h3>
             <label><b th:text="#{field.email}"></b></label>
             <input type="email" name="email" th:placeholder="#{field.email}" required>
 

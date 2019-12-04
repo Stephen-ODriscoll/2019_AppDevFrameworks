@@ -37,6 +37,9 @@ public class DataLoader implements ApplicationRunner {
         RegisteredUser user1 = registeredUserService.save(new RegisteredUser("test@gmail.com","Tester",
                 "123-1234567", encoder.encode("test"), true));
 
+        RegisteredUser user2 = registeredUserService.save(new RegisteredUser("disabled@gmail.com","Disabled",
+                "010-1010101", encoder.encode("disabled"), false));
+
         roleService.save(new Role(user, "ROLE_REGISTERED"));
         roleService.save(new Role(user1, "ROLE_REGISTERED"));
 
