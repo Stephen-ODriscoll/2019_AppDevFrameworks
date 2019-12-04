@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -46,7 +47,7 @@ public class BidController {
             return "bid/" + jobId;
 
         double amount = bidForm.getAmount();
-        Job job = jobService.findJob(jobId);
+        Job job = jobService.getJob(jobId);
         RegisteredUser bidder = registeredUserService.findByEmail(user.getName());
         if (job == null || !bidService.isValid(amount, job, bidder)) {
             redirectAttributes.addFlashAttribute("error", true);
@@ -55,5 +56,15 @@ public class BidController {
 
         bidService.save(new Bid(amount, job, bidder));
         return "redirect:/viewJobs";
+    }
+
+    @GetMapping(value= {"/bidHistory/{jobId}"})
+    public String bidHistory(@PathVariable("jobId") int jobId, Model model)
+    {
+        Job job = jobService.getJob(jobId);
+        List<Bid> bids =  bidService.getBids(job);
+        model.addAttribute("job", job);
+        model.addAttribute("bids", bids);
+        return "bidHistory";
     }
 }

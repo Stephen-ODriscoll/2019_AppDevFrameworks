@@ -31,6 +31,6 @@ public class JobRestController {
 	{
 		RegisteredUser registeredUser = registeredUserService.findByEmail(userEmail);
 		System.out.println(userEmail);
-		return bidService.findBids(registeredUser);
+		return bidService.getBids(registeredUser);
 	}
 }

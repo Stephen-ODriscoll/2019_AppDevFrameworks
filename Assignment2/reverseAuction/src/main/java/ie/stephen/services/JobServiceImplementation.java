@@ -20,7 +20,7 @@ public class JobServiceImplementation implements JobService {
     }
 
     @Override
-    public Job findJob(int id) {
+    public Job getJob(int id) {
         return jobDAO.findByJobId(id);
     }
 

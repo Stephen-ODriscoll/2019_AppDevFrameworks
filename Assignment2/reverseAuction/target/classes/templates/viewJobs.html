@@ -10,8 +10,9 @@
     <h1 th:text="*{name}"></h1>
     <p th:text="*{description}"></p>
     <div style="float: left">
-        <br/><br/>
-        <p th:text="#{jobs.createdBy} + *{creator.userEmail}"></p>
+        <br/>
+        <p style="margin-bottom: 0" th:text="#{jobs.createdBy} + *{creator.userEmail}"></p>
+        <a th:href="@{/bidHistory/} + *{jobId}"><span th:text="#{jobs.bidHistory}"></span></a>
     </div>
     <div class="bid" th:if="${winningBids[__${iterationCount.index}__] != null}">
         <p th:text="#{jobs.bid} + ${winningBids[__${iterationCount.index}__].amount}"></p>

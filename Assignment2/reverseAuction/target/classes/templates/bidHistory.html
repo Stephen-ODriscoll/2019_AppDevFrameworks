@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:insert="fragments.html :: head"></div>
+<div th:insert="fragments.html :: menu"></div>
+
+<body>
+<div>
+    <h1 th:text="${job.name}"></h1>
+    <p th:text="${job.description}"></p>
+    <br/>
+    <p th:text="#{jobs.createdBy} + ${job.creator.userEmail}"></p>
+    <hr/>
+</div>
+<br/>
+<div th:each="bid,iterationCount : ${bids}"
+     th:object="${bid}">
+    <h2 th:text="#{jobs.bidNumber} + ${iterationCount.index}"></h2>
+    <p th:text="#{jobs.bidAmount} + *{amount}"></p>
+    <p th:text="#{jobs.bidder} + *{bidder.userEmail}"></p>
+    <br/>
+</div>
+</body>
+</html>

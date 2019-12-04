@@ -40,8 +40,13 @@ public class BidServiceImplementation implements BidService {
     }
 
     @Override
-    public List<Bid> findBids(RegisteredUser registeredUser) {
+    public List<Bid> getBids(RegisteredUser registeredUser) {
         return bidDAO.findAllByBidder(registeredUser);
+    }
+
+    @Override
+    public List<Bid> getBids(Job job) {
+        return bidDAO.findAllByJob(job);
     }
 
     @Override

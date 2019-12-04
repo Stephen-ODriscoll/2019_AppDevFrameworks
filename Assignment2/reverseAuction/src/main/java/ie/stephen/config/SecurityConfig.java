@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/h2", "/h2/**").permitAll()
-                .antMatchers("/", "/index", "/register", "/viewJobs").permitAll()
+                .antMatchers("/", "/index", "/register", "/viewJobs", "/bidHistory/**").permitAll()
                 .antMatchers("/api/**").hasRole("REGISTERED")
                 .anyRequest().authenticated()
                 .and()
