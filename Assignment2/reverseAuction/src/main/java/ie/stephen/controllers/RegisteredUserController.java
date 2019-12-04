@@ -1,6 +1,5 @@
 package ie.stephen.controllers;
 
-import ie.stephen.forms.LoginForm;
 import ie.stephen.forms.RegisterForm;
 import ie.stephen.model.RegisteredUser;
 import ie.stephen.model.Role;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Slf4j
 @Controller
