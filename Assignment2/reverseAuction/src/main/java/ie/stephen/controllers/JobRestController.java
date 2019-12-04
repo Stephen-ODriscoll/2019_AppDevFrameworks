@@ -30,7 +30,6 @@ public class JobRestController {
 	public List<Bid> myRestJobBids(@PathVariable("userEmail") String userEmail)
 	{
 		RegisteredUser registeredUser = registeredUserService.findByEmail(userEmail);
-		System.out.println(userEmail);
 		return bidService.getBids(registeredUser);
 	}
 }
