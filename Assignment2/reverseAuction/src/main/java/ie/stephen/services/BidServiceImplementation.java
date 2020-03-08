@@ -17,9 +17,7 @@ public class BidServiceImplementation implements BidService {
     BidDao bidDAO;
 
     @Override
-    public Bid save(Bid bid) {
-        return bidDAO.save(bid);
-    }
+    public Bid save(Bid bid) { return bidDAO.save(bid); }
 
     @Override
     public boolean isValid(double amount, Job job, RegisteredUser bidder) {

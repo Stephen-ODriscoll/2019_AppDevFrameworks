@@ -20,12 +20,12 @@ public class Bid {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="jobId")
+    @JoinColumn(name = "jobId")
     Job job;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="userEmail")
+    @JoinColumn(name = "userEmail")
     RegisteredUser bidder;
 
     public Bid(double amount, Job job, RegisteredUser bidder) {

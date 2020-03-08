@@ -42,7 +42,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().accessDeniedPage("/accessDenied")
                 .and()
                 .csrf().disable().headers().frameOptions().disable();
-
     }
 
     @Override
